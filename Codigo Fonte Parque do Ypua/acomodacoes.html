@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <title>Acomodações</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="logo"></a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-lista left">
+                    <li>
+                        <a href="./index.html" class="nav-lista-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="./acomodacoes.html" class="nav-lista-link">Acomodações</a>
+                    </li>
+                    <li>
+                        <a href="./reserva.html" class="nav-lista-link">Reserve</a>
+                    </li>
+                    <li>
+                        <a href="" class="nav-lista-link">Contato</a>
+                    </li>
+                </ul>
+                <ul class="nav-lista right" id="user-nav">
+                    <li>
+                        <a href="./login.html" class="nav-lista-link right">Login</a>
+                    </li>
+                    <li>
+                        <a href="./cadastro.html" class="nav-lista-link right">Cadastre-se</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <h1 class="titulo">Acomodações</h1>
+        <div class="acomodacoes">
+            <div class="quartos">
+                <div>
+                    <img src="./assets/quarto-1.png" alt="Suíte Júnior" class="quartos-img">
+                </div>
+                <div>
+                    <h1 class="quartos-titulo">Suíte Júnior</h1>
+                    <ul class="quartos-lista">
+                        <li>Tamanho: 260 ft²</li>
+                        <li>Camas: 2 Casal</li>
+                    </ul>
+                    
+                    <p>
+                        A partir de <br>
+                        <span class="bold-upper">R$800</span>
+                    </p>
+                    <a href="./reserva.html?quarto=suíte-júnior" target="_blank">
+                        <button class="quartos-botao">Reserve já</button>
+                    </a>
+                </div>
+            </div>
+            <div class="quartos">
+                <div>
+                    <img src="./assets/quarto-2.png" alt="Quarto Standard" class="quartos-img">
+                </div>
+                <div>
+                    <h1 class="quartos-titulo">Quarto Standard</h1>
+                    <ul class="quartos-lista">
+                        <li>Tamanho: 230 ft²</li>
+                        <li>Camas: 1 Casal</li>
+                    </ul>
+                    
+                    <p>
+                        A partir de <br>
+                        <span class="bold-upper">R$650</span>
+                    </p>
+                    <a href="./reserva.html?quarto=quarto-standard" target="_blank">
+                        <button class="quartos-botao">Reserve já</button>
+                    </a>
+                </div>
+            </div>
+            <div class="quartos">
+                <div>
+                    <img src="./assets/quarto-3.png" alt="Quarto Superior" class="quartos-img">
+                </div>
+                <div>
+                    <h1 class="quartos-titulo">Quarto Superior</h1>
+                    <ul class="quartos-lista">
+                        <li>Tamanho: 280 ft²</li>
+                        <li>Camas: 1 King Size</li>
+                    </ul>
+                    
+                    <p>
+                        A partir de <br>
+                        <span class="bold-upper">R$1000</span>
+                    </p>
+                    <a href="./reserva.html?quarto=quarto-superior" target="_blank">
+                        <button class="quartos-botao">Reserve já</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = localStorage.getItem('username');
+
+            if (user) {
+                const userNav = document.getElementById('user-nav');
+                userNav.innerHTML = `
+                    <li class="nav-lista-link right">Bem-vindo, ${user}</li>
+                    <li><a style="color: #732424;" href="#" id="logout" class="nav-lista-link right">Sair</a></li>
+                `;
+
+                const logoutButton = document.getElementById('logout');
+                logoutButton.addEventListener('click', function () {
+                    localStorage.removeItem('username');
+                    window.location.href = './index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
